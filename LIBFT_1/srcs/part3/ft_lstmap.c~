@@ -1,0 +1,28 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dpylypen <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/12/01 15:47:14 by dpylypen          #+#    #+#             */
+/*   Updated: 2016/12/01 15:52:32 by dpylypen         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
+
+t_list *ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
+{
+	t_list ret_lst;
+
+	if (lst && f)
+	{
+		while (lst)
+		{
+			ret_lst = f(lst);
+			lst = lst->next;
+			ret_lst=ret_lst->next;
+		}
+	}
+}
